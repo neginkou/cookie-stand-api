@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 
 
-class Cookie_stand(models.Model):
+class CookieStand(models.Model):
     location = models.CharField(max_length=256)
     owner = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE, null=True, blank=True
@@ -12,11 +12,10 @@ class Cookie_stand(models.Model):
     hourly_sales = models.JSONField(default=list, null=True)
     minimum_customers_per_hour = models.IntegerField(default=0)
     maximum_customers_per_hour = models.IntegerField(default=0)
-    average_cookies_per_sale = models.FloatField(default=0)
-    reviewer = models.CharField(max_length=256, null=True, blank=True)  # Added field
-    name = models.CharField(max_length=256, null=True, blank=True)      # Added field
-    rating = models.IntegerField(default=0)                              # Added field
+    average_cookie_per_sale = models.FloatField(default=0)
 
     def __str__(self):
         return self.location
 
+    def get_absolute_url(self):
+        return reverse('cookiestand_detail', args=[str(self.id)])

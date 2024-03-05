@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Cookie_stand
+from .models import CookieStand
 
 
-class Cookie_standSerializer(serializers.ModelSerializer):
+class CookieStandSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Cookie_stand
+        model = CookieStand
         fields = "__all__"

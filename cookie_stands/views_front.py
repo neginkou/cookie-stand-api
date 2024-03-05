@@ -1,33 +1,32 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Cookie_stand
+from .models import CookieStand
 
 
-class Cookie_standListView(LoginRequiredMixin, ListView):
-    template_name = "cookie_stands/cookie_stand_list.html"
-    model = Cookie_stand
+class CookieStandListView(LoginRequiredMixin, ListView):
+    template_name = "cookiestands/cookiestand_list.html"
+    model = CookieStand
     context_object_name = "cookie_stands"
 
 
-class Cookie_standDetailView(LoginRequiredMixin, DetailView):
-    template_name = "cookie_stands/cookie_stand_detail.html"
-    model = Cookie_stand
+class CookieStandDetailView(LoginRequiredMixin, DetailView):
+    template_name = "cookiestands/cookiestand_detail.html"
+    model = CookieStand
 
 
-class Cookie_standUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "cookie_stands/cookie_stand_update.html"
-    model = Cookie_stand
+class CookieStandUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "cookiestands/cookiestand_update.html"
+    model = CookieStand
     fields = "__all__"
 
 
-class Cookie_standCreateView(LoginRequiredMixin, CreateView):
-    template_name = "cookie_stands/cookie_stand_create.html"
-    model = Cookie_stand
-    fields = ["name", "rating", "reviewer"]
+class CookieStandCreateView(LoginRequiredMixin, CreateView):
+    template_name = "cookiestands/cookiestand_create.html"
+    model = CookieStand
+    fields = "__all__"
 
-
-class Cookie_standDeleteView(LoginRequiredMixin, DeleteView):
-    template_name = "cookie_stands/cookie_stand_delete.html"
-    model = Cookie_stand
-    success_url = reverse_lazy("cookie_stand_list")
+class CookieStandDeleteView(LoginRequiredMixin, DeleteView):
+    template_name = "cookiestands/cookiestand_delete.html"
+    model = CookieStand
+    success_url = reverse_lazy("cookiestand_list")
